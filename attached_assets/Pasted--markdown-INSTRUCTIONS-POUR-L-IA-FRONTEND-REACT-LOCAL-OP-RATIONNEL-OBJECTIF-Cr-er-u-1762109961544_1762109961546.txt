@@ -1,0 +1,172 @@
+```markdown
+# INSTRUCTIONS POUR L'IA : FRONTEND REACT LOCAL OPÉRATIONNEL
+
+## 🎯 OBJECTIF
+Créer un **frontend React 100% opérationnel en local** pour HandiHelp, sans backend.
+
+## 📋 EXIGENCES
+
+### ✅ CE QUI DOIT FONCTIONNER
+- **Navigation complète** entre toutes les pages
+- **Formulaires qui marchent** (données stockées dans le state)
+- **Tableaux de bord interactifs**
+- **Système de messagerie simulé**
+- **Gestion des besoins** (création, consultation)
+- **Données persistantes** dans le localStorage
+
+### 🚫 SANS BACKEND
+- Pas de base de données externe
+- Pas d'API
+- Pas d'authentification réelle
+- Données mockées dans le code frontend
+
+## 🏗️ ARCHITECTURE
+
+### Pages Requises
+```
+/ → Accueil
+/login → Connexion
+/register/handicapped → Inscription handicapé
+/register/partner → Inscription partenaire
+/dashboard/handicapped → Tableau de bord handicapé
+/dashboard/partner → Tableau de bord partenaire
+```
+
+### Fonctionnalités par Page
+
+**1. ACCUEIL (/)**
+- Boutons de navigation vers inscription
+- Design accessible
+
+**2. INSCRIPTION HANDICAPÉ**
+```jsx
+// Champs à implémenter
+- Civilité, Nom, Prénom, Adresse, Téléphone, Email
+- Type de handicap (select)
+- Besoin immédiat (textarea)
+- Stockage dans localStorage
+```
+
+**3. INSCRIPTION PARTENAIRE**
+```jsx
+// Champs à implémenter  
+- Type partenaire (association/particulier/entreprise)
+- Nom, Adresse, Téléphone, Email
+- Motifs soutien (checkboxes)
+- Stockage dans localStorage
+```
+
+**4. TABLEAU DE BORD HANDICAPÉ**
+```jsx
+// Fonctionnalités
+- Onglet Profil : modifier infos
+- Onglet Besoins : 
+  * Formulaire créer besoin (titre, description, urgence)
+  * Liste besoins avec statuts
+- Onglet Messages : interface messagerie
+- Données dans localStorage
+```
+
+**5. TABLEAU DE BORD PARTENAIRE**
+```jsx
+// Fonctionnalités
+- Voir liste des besoins (filtres par type/urgence)
+- Bouton "Soutenir" sur chaque besoin
+- Historique des soutiens
+- Messagerie
+```
+
+## 💾 GESTION DES DONNÉES
+
+### Données Mockées Initiales
+```javascript
+// Dans le code React
+const initialData = {
+  users: [
+    {
+      id: 1,
+      type: 'handicapped',
+      name: 'Marie Martin',
+      email: 'marie@test.com',
+      needs: [
+        { id: 1, title: 'Fauteuil roulant', status: 'en attente' }
+      ]
+    }
+  ],
+  needs: [
+    {
+      id: 1,
+      userId: 1,
+      title: 'Fauteuil roulant électrique',
+      description: 'Besoin pour mobilité',
+      urgency: 'high',
+      status: 'open'
+    }
+  ]
+}
+```
+
+### Persistance Local
+```javascript
+// Utiliser localStorage pour :
+- Sauvegarder les nouveaux utilisateurs
+- Sauvegarder les nouveaux besoins
+- Sauvegarder les messages
+- Maintenir la session utilisateur
+```
+
+## 🎨 INTERFACE
+
+### Design Simple
+- CSS vanilla ou modules
+- Focus sur la fonctionnalité, pas le design avancé
+- Accessibilité de base (contraste, labels)
+
+### État de l'Application
+```javascript
+// Gérer avec useState/useContext
+- Utilisateur connecté
+- Liste des besoins
+- Messages
+- Données utilisateur
+```
+
+## 🚀 LIVRABLE FINAL
+
+### Ce que je veux obtenir
+- **Dossier React complet** avec `npm start` fonctionnel
+- **Toutes les pages navigables**
+- **Tous les formulaires opérationnels** (création utilisateur, besoins, messages)
+- **Données qui persistent** pendant la navigation
+- **Interface utilisable** pour démo
+
+### Test de Validation
+```bash
+npm start
+→ Accueil s'affiche
+→ Inscription fonctionne
+→ Connexion simulée marche
+→ Tableaux de bord interactifs
+→ Création besoins opérationnelle
+→ Messagerie simulée marche
+```
+
+## 📝 RÉSUMEX
+
+**JE VEUX :**
+- Frontend React autonome
+- Toutes les fonctionnalités opérationnelles  
+- Données en localStorage
+- Zéro backend
+- Application utilisable en local
+
+**PAS BESOIN :**
+- Base de données externe
+- API
+- Authentification réelle
+- Design complexe
+
+L'objectif est une **application frontend complètement fonctionnelle** pour démontrer le concept HandiHelp, qui tourne entièrement dans le navigateur.
+```
+
+Ce message demande spécifiquement un frontend React opérationnel en local, sans backend, avec toutes les fonctionnalités simulées via le state React et le localStorage.
